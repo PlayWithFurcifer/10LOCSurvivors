@@ -1,0 +1,275 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Assets/Wizard/Wizard6.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Wizard/Wizard5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Wizard/Wizard0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Wizard/Wizard4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Wizard/Wizard1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Wizard/Wizard2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Wizard/Wizard3.png" type="Texture" id=7]
+[ext_resource path="res://Player.gd" type="Script" id=8]
+[ext_resource path="res://Assets/shadow.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Star.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Wizard/Wizard_death_2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Wizard/Wizard_death_3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Wizard/Wizard_death_4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Wizard/Wizard_death_1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Wizard/Wizard_death_0.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Wizard/Wizard_death_5.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Wizard/Wizard_death_6.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Wizard/Wizard_death_7.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 21.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Attack"
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shoot"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Particles2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "restart"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Spawn"
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn"
+} ]
+}
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.0993789, 0.832298, 1 )
+colors = PoolColorArray( 0.886275, 0.403922, 0.756863, 0, 0.820313, 0.092926, 0.68961, 1, 0.867188, 0.823521, 0.35907, 1, 1, 0.968627, 0.631373, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+gravity = Vector3( 0, 200, 0 )
+initial_velocity = 189.9
+initial_velocity_random = 0.3
+angular_velocity = 3.09
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 720.0
+angle_random = 1.0
+scale = 3.01
+scale_random = 0.5
+color_ramp = SubResource( 5 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Scaling"
+length = 10000.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ShootAnimationPlayer:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2600 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.1, 10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpawnAnimationPlayer:playback_speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2597.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 10.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:speed_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2600 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 15.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -35, -114 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Death" ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_physics_process"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, -52 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "default" ]
+}
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.4 )
+position = Vector2( -4, 1 )
+scale = Vector2( 1.42771, 1 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, -52 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, -32 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ShootAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Attack"
+playback_speed = 0.1
+anims/Attack = SubResource( 3 )
+
+[node name="SpawnAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Spawn"
+playback_speed = 0.1
+anims/Spawn = SubResource( 7 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -8, -54 )
+emitting = false
+one_shot = true
+explosiveness = 0.57
+process_material = SubResource( 6 )
+texture = ExtResource( 10 )
+
+[node name="ScalingAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Scaling"
+anims/Scaling = SubResource( 8 )
+
+[node name="DeathAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="enemyContact"]
