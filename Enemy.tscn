@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3]
 
-[ext_resource path="res://Assets/Skeleton/Skeleton0.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Skeleton/Skeleton1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Skeleton/Skeleton2.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Skeleton/Skeleton3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/shadow.png" type="Texture" id=5]
-[ext_resource path="res://Enemy.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Skeleton/Skeleton_death2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Skeleton/Skeleton_death0.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Skeleton/Skeleton_death1.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Skeleton/Skeleton_death3.png" type="Texture" id=10]
+[ext_resource type="Texture2D" uid="uid://c2f25pnic70yv" path="res://Assets/Skeleton/Skeleton0.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d23cs20alf122" path="res://Assets/Skeleton/Skeleton1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bcs4rmj8tnfoh" path="res://Assets/Skeleton/Skeleton2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cktjtnsv7ht7t" path="res://Assets/Skeleton/Skeleton3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bhjwbf3kvisvn" path="res://Assets/shadow.png" id="5"]
+[ext_resource type="Script" path="res://Enemy.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://bsxjplkuliy2p" path="res://Assets/Skeleton/Skeleton_death2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://ckinfnkhptw1w" path="res://Assets/Skeleton/Skeleton_death0.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://cniouf3bxp6i" path="res://Assets/Skeleton/Skeleton_death1.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://6peudi17sexg" path="res://Assets/Skeleton/Skeleton_death3.png" id="10"]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,38 +35,38 @@ radius = 21.0
 resource_name = "Death"
 length = 1.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:playing")
+tracks/0/path = NodePath("AnimatedSprite2D:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ "Death" ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:frame")
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 0.5, 0.8 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
@@ -77,8 +77,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.199674, 1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.199674, 1, 1.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -89,8 +89,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ true ]
 }
@@ -101,8 +101,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1.4 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_physics_process"
@@ -112,14 +112,14 @@ tracks/5/keys = {
 } ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("AnimatedSprite:speed_scale")
+tracks/6/path = NodePath("AnimatedSprite2D:speed_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 1.0 ]
 }
@@ -130,8 +130,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ true ],
 "method": "stop"
@@ -144,8 +144,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -156,8 +156,8 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -165,26 +165,26 @@ tracks/9/keys = {
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:playing")
+tracks/0/path = NodePath("AnimatedSprite2D:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:animation")
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ "default" ]
 }
@@ -195,8 +195,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -207,8 +207,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
@@ -219,8 +219,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ true ]
 }
@@ -231,8 +231,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ true ]
 }
@@ -241,28 +241,28 @@ tracks/5/keys = {
 resource_name = "Scaling"
 length = 2600.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:speed_scale")
+tracks/0/path = NodePath("AnimatedSprite2D:speed_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2600 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 2600 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 12.0 ]
 }
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource( 6 )
 
-[node name="Shadow" type="Sprite" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( -4, -6 )
 z_index = -1
 texture = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( 9, -77 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
